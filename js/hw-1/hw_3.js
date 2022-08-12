@@ -7,7 +7,7 @@ const userMessage = prompt("Введіть число (хв.):");
 let consoleMinutes;
 let consoleHours;
 
-if (userMessage > 60) {
+if ((userMessage) => 60) {
   const hours = Math.round(userMessage / 60);
 
   if (hours < 10) {
@@ -15,14 +15,16 @@ if (userMessage > 60) {
   } else {
     consoleHours = hours;
   }
-
-  const minutes = userMessage % 60;
-
-  if (minutes < 10) {
-    consoleMinutes = "0" + minutes;
-  } else {
-    consoleMinutes = minutes;
-  }
-
-  console.log(`${consoleHours}:${consoleMinutes}`);
+} else {
+  consoleHours = "00";
 }
+
+const minutes = userMessage % 60;
+
+if (minutes < 10) {
+  consoleMinutes = "0" + minutes;
+} else {
+  consoleMinutes = minutes;
+}
+
+console.log(`${consoleHours}:${consoleMinutes}`);
